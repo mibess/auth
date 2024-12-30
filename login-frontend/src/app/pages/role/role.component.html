@@ -1,0 +1,47 @@
+<div class="container">
+
+  <h2>My Resources</h2>
+
+  <div class="mt10">
+    @if (user.role === 'ADMIN'){
+      <p>You get <b>ADMIN resources</b></p>
+    }
+
+    @if (user.role === 'USER'){
+    <p>You get <b>USER resources</b></p>
+  }
+
+  @if (user.role !== 'ADMIN' && user.role !== 'USER'){
+    <p>You get <b>GUEST resources</b></p>
+  }
+
+  </div>
+
+  <div class="mt10">
+    <h4>Resources</h4>
+  </div>
+
+
+  <div class="mt10">
+    @defer{
+
+      @for (resource of resources; track $index) {
+        <div>
+          <p style="margin-bottom: 10px;">{{ resource }}</p>
+        </div>
+      }
+
+    } @placeholder (minimum 1500ms) {
+      <div style="display: flex; justify-content: space-between; width: 100%;">
+
+        <span>Loading Resources</span>
+         <span class="spinning">⏳</span>
+      </div>
+    }
+  </div>
+
+  <hr>
+
+  <a routerLink="/">Back</a>
+
+</div>

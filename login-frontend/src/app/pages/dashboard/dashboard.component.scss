@@ -1,0 +1,22 @@
+.dashboard-links {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.emailVerified {
+  color: green;
+  padding: 5px;
+  border: 1px solid green;
+  border-radius: 5px;
+  font-size: small;
+}
+
+
+.emailNotVerified {
+  color: red;
+  padding: 5px;
+  border: 1px solid red;
+  border-radius: 5px;
+  font-size: small;
+}

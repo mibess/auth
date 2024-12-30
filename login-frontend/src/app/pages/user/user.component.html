@@ -1,0 +1,49 @@
+<div class="container">
+
+  <h2>User</h2>
+
+  <hr>
+
+  @if (isLoading) {
+
+    <p>Loading...</p>
+
+  } @else {
+    <form class="form">
+      <div>
+        <label for="name">Name</label><br>
+        <input type="text" id="name" name="name" [(ngModel)]="user.name" required>
+      </div>
+
+      <div>
+        <label for="lastName">Lastname</label><br>
+        <input type="text" id="lastName" name="lastName" [(ngModel)]="user.lastName" required>
+      </div>
+
+      <div>
+        <label for="email">Email</label><br>
+        <input type="email" id="email" name="email" [(ngModel)]="user.email" required>
+      </div>
+
+      <div>
+        <label for="role">Role</label><br>
+        <select id="role" name="role" [(ngModel)]="user.role" required>
+          <option value="ADMIN">Admin</option>
+          <option value="USER">User</option>
+        </select>
+      </div>
+
+
+      <div class="mt10">
+        <button type="button" (click)="update()">Update</button>
+      </div>
+
+      <hr>
+
+      <div>
+        <a routerLink="/users">Back</a>
+      </div>
+
+    </form>
+  }
+</div>

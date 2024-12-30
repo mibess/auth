@@ -1,0 +1,13 @@
+.spinning {
+  animation: self-rotate .5s linear infinite;
+}
+
+@keyframes self-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(6deg);
+  }
+}

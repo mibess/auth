@@ -1,0 +1,68 @@
+spring:
+  application:
+    name: login-server
+  datasource:
+    url: ${DB_HOST}
+    username: ${DB_USER}
+    password: ${DB_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: ${API_SHOW_SQL:false}
+
+  security:
+    oauth2:
+      client:
+        registration:
+          keycloak:
+            client-id: ${KEYCLOAK_CLIENT_ID}
+            client-secret: ${KEYCLOAK_CLIENT_SECRET}
+            scope: openid, profile, email
+        provider:
+          keycloak:
+            issuer-uri: ${KEYCLOAK_URL}/realms/login-app-realm
+      resourceserver:
+        jwt:
+          issuer-uri: ${KEYCLOAK_URL}/realms/login-app-realm
+
+  mail:
+    host: ${EMAIL_HOST}
+    port: ${EMAIL_PORT}
+    username: ${EMAIL_USERNAME}
+    password: ${EMAIL_PASSWORD}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+  freemarker:
+    settings:
+      locale: pt_BR
+
+keycloak:
+  auth-server-url: ${KEYCLOAK_URL}
+  realm: ${KEYCLOAK_REALM}
+  client-id: ${KEYCLOAK_CLIENT_ID}
+  client-secret: gi9PYBuRxmiHBitkVhotR6MRzUoql8FT
+  token-url: ${KEYCLOAK_URL}/realms/${KEYCLOAK_REALM}/protocol/openid-connect/token
+  logout-url: ${KEYCLOAK_URL}/realms/${KEYCLOAK_REALM}/protocol/openid-connect/logout
+  userinfo-url: ${KEYCLOAK_URL}/realms/${KEYCLOAK_REALM}/protocol/openid-connect/userinfo
+  introspect-url: ${KEYCLOAK_URL}/realms/${KEYCLOAK_REALM}/protocol/openid-connect/token/introspect
+  username: ${KEYCLOAK_USER}
+  password: ${KEYCLOAK_PASSWORD}
+
+frontend:
+  url: ${FRONTEND_URL}
+
+email:
+  mode: ${EMAIL_MODE}
+  from: ${EMAIL_FROM}
+
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG

@@ -1,0 +1,15 @@
+<div class="header">
+
+  @if (user().id) {
+    <div>
+      <span>Hello, <b>{{ user().name }}</b></span>
+      <br>
+      <span style="font-size: smaller;">{{ user().email }}</span>
+    </div>
+
+    <button type="button" (click)="logout()">Logout</button>
+  } @else {
+    Login APP
+  }
+
+</div>

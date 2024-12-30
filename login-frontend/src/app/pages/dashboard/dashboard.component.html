@@ -1,0 +1,47 @@
+<div class="container">
+
+  <h2>Dashboard</h2>
+
+  <hr>
+
+  <div class="mb10">
+    @if (!userEntity.emailVerified) {
+      <span class="emailNotVerified ">You need confirm your email</span>
+    } @else {
+      <span class="emailVerified ">Email verified</span>
+    }
+  </div>
+
+
+  @if (user.role === 'ADMIN') {
+    <p>You are enabled to view PRIVATE content</p>
+  } @else {
+    <p>You are enabled to view PUBLIC content</p>
+  }
+
+  <div class="mt10">
+    <p><b>Links</b></p>
+  </div>
+
+  <div class="mt10 dashboard-links">
+    <a routerLink="/users" >Users</a>
+    <a routerLink="/roles">Roles</a>
+
+    @if (userEntity.canCreatePassword) {
+      <a routerLink="/create-password">Create a password</a>
+    } @else {
+      <a routerLink="/change-password">Change my Password</a>
+    }
+
+  </div>
+
+</div>
+
+<div class="mt10">
+  <br><br>
+  <p><b>Tasks</b></p>
+</div>
+
+<div class="mt10 dashboard-links">
+  <span>- Push on github</span>
+</div>

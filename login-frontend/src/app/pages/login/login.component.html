@@ -1,0 +1,42 @@
+<div class="container">
+
+  <h2>Login</h2>
+
+  <hr>
+
+  <form class="form">
+    <div>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" [(ngModel)]="email" required>
+    </div>
+
+    <div>
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" [(ngModel)]="password" required>
+    </div>
+
+    <div class="mt10">
+      <button type="submit" (click)="login()">Login</button>
+    </div>
+
+    <div class="or">OR</div>
+
+    <button class="google-btn" (click)="loginWithGoogle()">Login with Google</button>
+
+    <hr>
+
+    <div>
+      <p>Forgot password?
+        <a routerLink="/forgot-password">Click here</a>
+      </p>
+    </div>
+
+    <div>
+      <p>Don't have account?
+        <a routerLink="/register">Register</a>
+      </p>
+    </div>
+
+  </form>
+
+</div>

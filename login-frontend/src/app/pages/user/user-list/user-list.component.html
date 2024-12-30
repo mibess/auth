@@ -1,0 +1,30 @@
+<div class="container">
+
+<h2>Users</h2>
+
+<hr>
+
+@if (isLoading) {
+
+  <p>Loading...</p>
+
+} @else {
+
+    @for (user of users; track $index) {
+      <div class="list">
+        <div>
+
+          <a routerLink="/users/{{user.id}}">{{ user.name }} - {{ user.email }}</a>
+
+          <button (click)="deleteUser(user.id)">Delete</button>
+        </div>
+
+      </div>
+    }
+
+    <hr>
+
+    <app-button-back></app-button-back>
+
+}
+</div>

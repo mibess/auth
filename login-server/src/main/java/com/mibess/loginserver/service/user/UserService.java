@@ -67,6 +67,8 @@ public class UserService {
 
         userRepository.save(userEntity);
 
+        keycloakService.updateOnKeycloak(userEntity);
+
         emailValidationService.sendEmailValidation(userEntity);
 
         log.info("User registered by social: {} - {}", userEntity.getName(), userEntity.getEmail());
